@@ -446,6 +446,7 @@ df.head()
 df.pivot_table("survived","sex","embarked")
 
 
+df.pivot_table("survived","sex","embarked",aggfunc="std")
 
 
 
