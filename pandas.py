@@ -449,6 +449,138 @@ df.pivot_table("survived","sex","embarked")
 df.pivot_table("survived","sex","embarked",aggfunc="std")
 
 
+df.pivot_table("survived","sex",["embarked","class"])
+
+
+df["new_age"] = pd.cut(df["age"],[0,10,18,25,40,90])
+
+
+df.pivot_table("survived","sex","new_age")
+
+
+df["class"] = "classes"
+    
+df.pivot_table("survived","sex",["new_age","class"])
+
+
+a = pd.set_option("display.width",500)
+a
+
+
+
+#apply & lambda
+
+
+
+import pandas as pd
+import seaborn as sns
+pd.set_option('display.max_columns',None)
+pd.set_option("display.width",500)
+df = sns.load_dataset("titanic1")
+df.head()
+
+
+
+df["age2"] = df["age"]*2
+df["age3"] = df["age"]*5
+df.head()
+
+
+(df["age"]/10).head()
+(df["age2"]/10).head()
+(df["age3"]/10).head()
+
+
+
+for col in df.columns:
+    if "age" in col:
+        print((df[col]/10).head())
+        
+
+
+for col in df.columns:
+    if "age" in col:
+        df[col] = df[col]/10
+
+df.head()
+
+
+df[["age","age2","age3"]].apply(lambda x: x/10).head()
+
+
+df[["age","age2","age3"]].apply(lambda x: x/10).head()
+
+
+df.loc[:, df.columns.str.contains("age")].apply(lambda x: x/10).head()
+
+
+df.loc[:, df.columns.str.contains("age")].apply(lambda x: (x - x.mean()) / x.std()).head()
+
+
+
+
+def standart_scaler(col_name):
+    return (col_name - col_name.mean()) / col_name.std()
+
+
+df.loc[:, df.columns.str.contains("age")].apply(standart_scaler).head()
+
+
+
+
+#join operations
+
+import numpy as np
+import pandas as pd
+m = np.random.randint(1, 30, size=(5,3))
+df1 = pd.DataFrame(m,columns=["var1","var2","var3"])
+df2 = df1 + 99
+
+pd.concat([df1,df2],ignore_index=True)
+
+
+
+#merge
+
+df1 = pd.DataFrame({'employees': ['john', 'dennis', 'mark', 'maria'],
+                    'group': ['accounting', 'engineering', 'engineering', 'hr']})
+
+
+df2 = pd.DataFrame({'employees': ['mark', 'john', 'dennis', 'maria'],
+                    'start_date': [2010, 2009, 2014, 2019]})
+
+pd.merge(df1, df2)
+pd.merge(df1, df2, on="employees")
+
+
+
+df3 = pd.merge(df1, df2)
+
+df4 = pd.DataFrame({'group': ['accounting', 'engineering', 'hr'],
+                    'manager': ['Caner', 'Mustafa', 'Berkcan']})
+
+pd.merge(df3, df4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
