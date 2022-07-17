@@ -443,7 +443,7 @@ df = sns.load_dataset("titanic")
 df.head()
 
 
-
+df.pivot_table("survived","sex","embarked")
 
 
 
