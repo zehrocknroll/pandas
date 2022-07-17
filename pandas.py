@@ -60,7 +60,7 @@ s.head(3)
 import pandas as pd
 import seaborn as sns
 
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 
 """
        survived  pclass     sex   age  ...  deck  embark_town  alive  alone
@@ -185,7 +185,7 @@ Name: sex, dtype: int64
 import pandas as pd
 import seaborn as sns
 
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 
 df.head()
 
@@ -296,7 +296,7 @@ import pandas as pd
 import seaborn as sns
 
 pd.set_option('display.max_columns', None) #to get rid of the three dots in the printouts
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 df.head()
 
 
@@ -337,7 +337,7 @@ df.drop("age2",axis = 1).head()
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns',None)
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 df.head()
 
 
@@ -369,7 +369,7 @@ df.loc[0:3, col_names]
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns',None)
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 df.head()
 
 df[df["age"] > 50].head() #those over the age of 50
@@ -400,7 +400,7 @@ df_new["embark_town"].value_counts()
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns',None)
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 df.head()
 
 
@@ -439,7 +439,7 @@ df.groupby(["sex","embark_town","class"]).agg({
 import pandas as pd
 import seaborn as sns
 pd.set_option('display.max_columns',None)
-df = sns.load_dataset("titanic")
+df = sns.load_dataset("titanic1")
 df.head()
 
 
